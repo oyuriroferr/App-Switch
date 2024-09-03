@@ -4,7 +4,6 @@ from os import system as cmd
 from os import getcwd, getenv
 from time import sleep
 
-
 # Define user / hostname / local path
 user = user()
 hostname = getenv("COMPUTERNAME")
@@ -23,13 +22,14 @@ user_text = f"{color.fg.green}({color.fg.blue}{user}@{hostname}{color.reset}{col
 # Choosing
 
 cmd("cls")
+print(user_text)
 option = str(input(f"{which_app}\n{shell_simbol}"))
-if option == 0:
+if option == '0':
     cmd("cls")
-    cmd("py Prompt.py")
-elif option == 1:
+    cmd("python Prompt.py")
+elif option == '1':
     cmd("cls")
-    cmd("py Format.py")
+    cmd("python Sounds.py")
 else:
     print(f"{wrong_value}")
     print(f"{"\n" * 35}{wrong_value}\n{version} By {color.type.Black}{color.fg.purple}EoRoferr{color.reset}")

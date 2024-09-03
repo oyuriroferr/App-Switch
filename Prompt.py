@@ -27,9 +27,11 @@ version = f"{color.type.Black}0.0.1 {color.reset}{color.fg.cyan}Beta{color.reset
 
 # Prompt
 cmd("cls")
+print(user_text)
 option = str(input(f"{color.fg.green}Games[0]{color.reset} or {color.fg.red}Apps[1]{color.reset}\n{color.type.Black}>{color.reset}"))
 if option == '0':
     cmd("cls")
+    print(user_text)
     print(games_options)
     option = str(input(f"{shell_simbol}"))
     if option == '0':
@@ -43,6 +45,7 @@ if option == '0':
         
 elif option == '1':
     cmd("cls")
+    print(user_text)
     print(app_options)
     option = str(input(f"{shell_simbol}"))
     if option == '0':
