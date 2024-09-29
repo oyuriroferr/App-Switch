@@ -60,7 +60,8 @@ def download(file):
             cmd(f'powershell Invoke-WebRequest ""{among[1]}"" -OutFile "{among[0].replace(" ","")+ '.zip'}"')
         appdata = getenv('APPDATA')
         file = appdata + r"\Among Us\Among Us.exe"
-        shutil.unpack_archive(name, appdata + r"\Among Us", 'zip')
+        if not path.exists(file):
+            shutil.unpack_archive(name, appdata + r"\Among Us", 'zip')
         create_file_shortcut(file, f"{among[0].replace(" ","")}")
         os.startfile(file)
         print(file.capitalize())
@@ -69,10 +70,11 @@ def download(file):
         name = "CounterStrike1.6.zip"
         if not path.exists("CounterStrike1.6.zip"):
             cmd(f'powershell Invoke-WebRequest ""{cs[1]}"" -OutFile "{cs[0].replace(" ","")+ '.zip'}"')
-        shutil.unpack_archive(name, cs[2], 'zip')
         appdata = getenv('APPDATA')
-        shutil.copytree(cs[2], f"{appdata + r'\cs1.6'}")
         file = appdata + r"\cs1.6\Cs1.6\Counter-Strike WaRzOnE\CS16Launcher.exe"
+        if not path.exists(file):
+            shutil.unpack_archive(name, cs[2], 'zip')
+            #shutil.copytree(cs[2], f"{appdata + r'\cs1.6'}")
         create_file_shortcut(file, f"{cs[0]}")
         os.startfile(file)
         print(file.capitalize())
