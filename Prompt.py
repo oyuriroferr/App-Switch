@@ -55,21 +55,20 @@ def download(file):
         print(file.capitalize())
 
     elif file == 'among':
-        file_name = path.join("downloads", file + ".zip")
-        name = r"\AmongUs.zip"
+        name = r"AmongUs.zip"
         if not path.exists("AmongUs.zip"):
             cmd(f'powershell Invoke-WebRequest ""{among[1]}"" -OutFile "{among[0].replace(" ","")+ '.zip'}"')
         appdata = getenv('APPDATA')
         file = appdata + r"\Among Us\Among Us.exe"
         shutil.unpack_archive(name, appdata + r"\Among Us", 'zip')
-        create_file_shortcut(file, f"{among[0]}")
+        create_file_shortcut(file, f"{among[0].replace(" ","")}")
         os.startfile(file)
         print(file.capitalize())
 
     elif file == 'cs':
-        file_name = path.join("downloads", file + ".zip")
         name = "CounterStrike1.6.zip"
-        cmd(f'powershell Invoke-WebRequest "{cs[1]}" -OutFile "{name}"')
+        if not path.exists("CounterStrike1.6.zip"):
+            cmd(f'powershell Invoke-WebRequest ""{cs[1]}"" -OutFile "{cs[0].replace(" ","")+ '.zip'}"')
         shutil.unpack_archive(name, cs[2], 'zip')
         appdata = getenv('APPDATA')
         shutil.copytree(cs[2], f"{appdata + r'\cs1.6'}")
