@@ -56,8 +56,9 @@ def download(file):
 
     elif file == 'among':
         file_name = path.join("downloads", file + ".zip")
-        cmd(f'powershell Invoke-WebRequest "{among[1]}" -OutFile "{among[0] + '.zip'}"')
-        shutil.unpack_archive(among[0] + '.zip', among[2], 'zip')
+        name = "Among Us.zip"
+        cmd(f'powershell Invoke-WebRequest "{among[1]}" -OutFile "{name}"')
+        shutil.unpack_archive(name, among[2], 'zip')
         appdata = getenv('APPDATA')
         shutil.copytree(among[2],f"{appdata + r'\Among Us'}" )
         file = appdata + r"\Among Us\Among Us.exe"
@@ -67,8 +68,9 @@ def download(file):
 
     elif file == 'cs':
         file_name = path.join("downloads", file + ".zip")
-        cmd(f'powershell Invoke-WebRequest "{cs[1]}" -OutFile "{cs[0] + '.zip'}"')
-        shutil.unpack_archive(cs[0] + '.zip', cs[2], 'zip')
+        name = "Counter Strike 1.6.zip"
+        cmd(f'powershell Invoke-WebRequest "{cs[1]}" -OutFile "{name}"')
+        shutil.unpack_archive(name, cs[2], 'zip')
         appdata = getenv('APPDATA')
         shutil.copytree(cs[2], f"{appdata + r'\cs1.6'}")
         file = appdata + r"\cs1.6\Counter-Strike WaRzOnE\CS16Launcher.exe"
