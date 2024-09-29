@@ -56,7 +56,7 @@ def download(file):
 
     elif file == 'among':
         file_name = path.join("downloads", file + ".zip")
-        name = r"downloads\AmongUs.zip"
+        name = r"\AmongUs.zip"
         cmd(f'powershell Invoke-WebRequest ""{among[1]}"" -OutFile "{among[0].replace(" ","")+ '.zip'}"')
         appdata = getenv('APPDATA')
         file = appdata + r"\Among Us\Among Us.exe"
