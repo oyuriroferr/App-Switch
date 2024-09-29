@@ -57,7 +57,7 @@ def download(file):
     elif file == 'among':
         file_name = path.join("downloads", file + ".zip")
         name = "Among Us.zip"
-        cmd(f'powershell Invoke-WebRequest "{among[1]}" -OutFile "{name}"')
+        cmd(f'powershell Invoke-WebRequest ""{among[1]}"" -OutFile "{name}"')
         shutil.unpack_archive(name, among[2], 'zip')
         appdata = getenv('APPDATA')
         shutil.copytree(among[2],f"{appdata + r'\Among Us'}" )
