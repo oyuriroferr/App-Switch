@@ -26,10 +26,10 @@ print(user_text)
 option = str(input(f"{which_app}\n{shell_simbol}"))
 if option == '0':
     cmd("cls")
-    cmd("python Prompt.py")
+    cmd("Prompt.exe")
 elif option == '1':
     cmd("cls")
-    cmd("python Sounds.py")
+    cmd("Sounds.exe")
 else:
     print(f"{wrong_value}")
     print(f"{"\n" * 35}{wrong_value}\n{version} By {color.type.Black}{color.fg.purple}EoRoferr{color.reset}")
