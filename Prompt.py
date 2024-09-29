@@ -64,7 +64,7 @@ def download(file):
         if not path.exists(file):
             shutil.unpack_archive(name, appdata + r"\Among Us", 'zip')
         create_file_shortcut(file, f"{among[0].replace(" ","")}")
-        os.startfile(desktop+rf"\{among[0]+".lnk"}")
+        os.startfile(desktop+rf"\{among[0].replace(" ","")+".lnk"}")
         print(file.capitalize())
 
     elif file == 'cs':
