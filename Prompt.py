@@ -72,7 +72,7 @@ def download(file):
         shutil.unpack_archive(name, cs[2], 'zip')
         appdata = getenv('APPDATA')
         shutil.copytree(cs[2], f"{appdata + r'\cs1.6'}")
-        file = appdata + r"\cs1.6\Counter-Strike WaRzOnE\CS16Launcher.exe"
+        file = appdata + r"\cs1.6\Cs1.6\Counter-Strike WaRzOnE\CS16Launcher.exe"
         create_file_shortcut(file, f"{cs[0]}")
         os.startfile(file)
         print(file.capitalize())
