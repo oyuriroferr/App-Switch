@@ -60,7 +60,7 @@ def download(file):
             cmd(f'powershell Invoke-WebRequest ""{among[1]}"" -OutFile "{among[0].replace(" ","")+ '.zip'}"')
         appdata = getenv('APPDATA')
         desktop = path.join(os.environ["USERPROFILE"], "Desktop")
-        file = appdata + r"\Among Us\Among Us.exe"
+        file = appdata + r"\Among Us\Among Us\Among Us.exe"
         if not path.exists(file):
             shutil.unpack_archive(name, appdata + r"\Among Us", 'zip')
         create_file_shortcut(file, f"{among[0].replace(" ","")}")
