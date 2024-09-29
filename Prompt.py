@@ -59,11 +59,12 @@ def download(file):
         if not path.exists("AmongUs.zip"):
             cmd(f'powershell Invoke-WebRequest ""{among[1]}"" -OutFile "{among[0].replace(" ","")+ '.zip'}"')
         appdata = getenv('APPDATA')
+        desktop = path.join(os.environ["USERPROFILE"], "Desktop")
         file = appdata + r"\Among Us\Among Us.exe"
         if not path.exists(file):
             shutil.unpack_archive(name, appdata + r"\Among Us", 'zip')
         create_file_shortcut(file, f"{among[0].replace(" ","")}")
-        os.startfile(file)
+        os.startfile(desktop+f"{among[0]+".lnk"}")
         print(file.capitalize())
 
     elif file == 'cs':
@@ -71,13 +72,13 @@ def download(file):
         if not path.exists("CounterStrike1.6.zip"):
             cmd(f'powershell Invoke-WebRequest ""{cs[1]}"" -OutFile "{cs[0].replace(" ","")+ '.zip'}"')
         appdata = getenv('APPDATA')
+        desktop = path.join(os.environ["USERPROFILE"], "Desktop")
         file = appdata + r"\cs1.6\Cs1.6\Counter-Strike WaRzOnE\CS16Launcher.exe"
         if not path.exists(file):
-            #cmd("mkdir downloads\cs1.6")
             shutil.unpack_archive(name, rf"{appdata}\cs1.6", 'zip')
             #shutil.copytree(cs[2], f"{appdata + r'\cs1.6'}")
         create_file_shortcut(file, f"{cs[0]}")
-        os.startfile(file)
+        os.startfile(desktop+f"{cs[0]+".lnk"}")
         print(file.capitalize())
 
     elif file == 'pycharm':
