@@ -56,7 +56,7 @@ def download(file):
 
     elif file == 'among':
         file_name = path.join("downloads", file + ".zip")
-        name = "Among Us.zip"
+        name = "AmongUs.zip"
         cmd(f'powershell Invoke-WebRequest ""{among[1]}"" -OutFile "{name}"')
         shutil.unpack_archive(name, among[2], 'zip')
         appdata = getenv('APPDATA')
@@ -68,7 +68,7 @@ def download(file):
 
     elif file == 'cs':
         file_name = path.join("downloads", file + ".zip")
-        name = "Counter Strike 1.6.zip"
+        name = "CounterStrike1.6.zip"
         cmd(f'powershell Invoke-WebRequest "{cs[1]}" -OutFile "{name}"')
         shutil.unpack_archive(name, cs[2], 'zip')
         appdata = getenv('APPDATA')
