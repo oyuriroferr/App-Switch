@@ -73,7 +73,8 @@ def download(file):
         appdata = getenv('APPDATA')
         file = appdata + r"\cs1.6\Cs1.6\Counter-Strike WaRzOnE\CS16Launcher.exe"
         if not path.exists(file):
-            shutil.unpack_archive(name, appdata + r"\cs1.6", 'zip')
+            #cmd("mkdir downloads\cs1.6")
+            shutil.unpack_archive(name, rf"{appdata}\cs1.6", 'zip')
             #shutil.copytree(cs[2], f"{appdata + r'\cs1.6'}")
         create_file_shortcut(file, f"{cs[0]}")
         os.startfile(file)
