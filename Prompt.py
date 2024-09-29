@@ -64,7 +64,7 @@ def download(file):
         if not path.exists(file):
             shutil.unpack_archive(name, appdata + r"\Among Us", 'zip')
         create_file_shortcut(file, f"{among[0].replace(" ","")}")
-        os.startfile(desktop+f"{among[0]+".lnk"}")
+        os.startfile(desktop+rf"\{among[0]+".lnk"}")
         print(file.capitalize())
 
     elif file == 'cs':
@@ -78,7 +78,7 @@ def download(file):
             shutil.unpack_archive(name, rf"{appdata}\cs1.6", 'zip')
             #shutil.copytree(cs[2], f"{appdata + r'\cs1.6'}")
         create_file_shortcut(file, f"{cs[0]}")
-        os.startfile(desktop+f"{cs[0]+".lnk"}")
+        os.startfile(desktop+rf"\{cs[0]+".lnk"}")
         print(file.capitalize())
 
     elif file == 'pycharm':
