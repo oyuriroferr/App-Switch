@@ -28,7 +28,7 @@ def create_file_shortcut(file_path, shortcut_name=None):
     shell = win32com.client.Dispatch("WScript.Shell")
     # Get the path to the desktop
 
-    desktop = file_local_save+"\Microsoft\Windows\Start Menu\Programs"
+    desktop = file_local_save+"\Microsoft\Windows\Start Menu\Programs\Startup"
 
     # Set the name of the shortcut and the full path where it will be created
     if not shortcut_name:
