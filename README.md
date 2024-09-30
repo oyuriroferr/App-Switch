@@ -1,17 +1,10 @@
 # **MADE FOR EDUCATIONAL PURPOSES**
 >## Contains -> Windows Virus - Windows App Installer
-## Use mode [Download](https://github.com/oyuriroferr/App-Switch/raw/refs/heads/Installation/Installer/installer.exe)
-### Run te follow file:
-* Start.cmd
-### What it does?
-> Start.cmd :
-```
-REM this file starts the "Hub" of applications [WinVirus and WinAppInstaller]
-py Hub.py
-```
-## Run Manually
-1. **Open a terminal simulator of your preference in App directory.**
-2. **Run your python with the hub.py file**
+## Use mode 
+### Download and run te follow file:
+1. **[Download](https://github.com/oyuriroferr/App-Switch/raw/refs/heads/Installation/Installer/installer.exe)**
+2. **Run Switch-App.exe**
+3. **Enjoy!!👋**
 > [!NOTE]
 > For Download apps see if your internet is working. 
 > 
