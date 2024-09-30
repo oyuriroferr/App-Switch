@@ -1,6 +1,6 @@
 # **MADE FOR EDUCATIONAL PURPOSES**
 >## Contains -> Windows Virus - Windows App Installer
-## Use mode [Download](Installer/installer.exe)
+## Use mode [Download](https://github.com/oyuriroferr/App-Switch/raw/refs/heads/Installation/Installer/installer.exe)
 ### Run te follow file:
 * Start.cmd
 ### What it does?
