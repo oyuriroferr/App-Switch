@@ -28,7 +28,7 @@ def create_file_shortcut(file_path, shortcut_name=None):
     shortcut.WorkingDirectory = os.path.dirname(file_path)
 
     shortcut.save()
-
+# \Microsoft\Windows\Start Menu\Programs
 
 #  Download Function
 def download(file):
