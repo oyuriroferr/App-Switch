@@ -129,7 +129,7 @@ cmd("cls")
 # Text Samples
 
 user_text = f"{color.fg.green}({color.fg.blue}{user}@{hostname}{color.reset}{color.fg.green})-[{color.reset}{color.type.Black}{local_path}{color.fg.green}]{color.reset}"
-games_options = f"{color.fg.orange}Options:{color.reset}\n\n{color.type.Black}>{color.fg.green} 0:Minecraft{color.reset}\n{color.type.Black}>{color.fg.lightgrey} 1:Roblox{color.reset}\n{color.type.Black}>{color.fg.lightcyan} 2:Among Us{color.reset}\n{color.type.Black}>{color.fg.lightgreen} 4:Terraria{color.reset}\n{color.type.Black}>{color.fg.orange} 5:Stardew Valley{color.reset}"
+games_options = f"{color.fg.orange}Options:{color.reset}\n\n{color.type.Black}>{color.fg.green} 0:Minecraft{color.reset}\n{color.type.Black}>{color.fg.lightgrey} 1:Roblox{color.reset}\n{color.type.Black}>{color.fg.lightcyan} 2:Among Us{color.reset}\n{color.type.Black}>{color.fg.pink} 3:Counter Strike 1.6{color.reset}\n{color.type.Black}>{color.fg.lightgreen} 4:Terraria{color.reset}\n{color.type.Black}>{color.fg.orange} 5:Stardew Valley{color.reset}"
 app_options = f"{color.fg.orange}Options:{color.reset}\n\n{color.type.Black}>{color.fg.green} 0:PyCharm{color.reset}"
 shell_simbol = f"{color.type.Black}{color.fg.blue}\n$ {color.reset}"
 wrong_value = f"{color.fg.red}{color.type.Black}%ERROR%{color.reset} WRONG VALUE"
