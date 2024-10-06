@@ -8,5 +8,5 @@
 > [!NOTE]
 > For Download apps see if your internet is working. 
 > 
-> You don't need privilege mode to run your code 
+> You don't need privilege mode to run our app.
 
