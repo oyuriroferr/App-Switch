@@ -1,24 +1,13 @@
 import os
 import winreg
-from Colors import color
+from Colors import text
 from time import sleep
-from getpass import getuser as user
-from os import getcwd, getenv
-
-# Define user / hostname / local path
-user = user()
-hostname = getenv("COMPUTERNAME")
-local_path = getcwd()
-# If is in User_Path
-if user in local_path:
-    local_path = "~" + local_path[local_path.find(user[-1:])+1:].replace("\\","/")
 
 # Text Samples
-options = f"{color.fg.orange}Install{color.reset} {color.fg.cyan}[{color.fg.blue}0{color.fg.cyan}]{color.type.Black} or {color.fg.red}Remove {color.fg.cyan}[{color.fg.blue}1{color.fg.cyan}]{color.reset}"
-shell_simbol = f"{color.type.Black}{color.fg.blue}\n$ {color.reset}"
-wrong_value = f"{color.fg.red}{color.type.Black}%ERROR%{color.reset} WRONG VALUE"
-user_text = f"{color.fg.green}({color.fg.blue}{user}@{hostname}{color.reset}{color.fg.green})-[{color.reset}{color.type.Black}{local_path}{color.fg.green}]{color.reset}"
-shell_simbol = f"{color.type.Black}{color.fg.blue}\n$ {color.reset}"
+shell_simbol = text.shell_simbol
+wrong_value = text.wrong_value
+user_text = text.user_text
+options = text.options
 
 # Sounds Function
 def listar_sons_disponiveis(diretorio):

@@ -1,15 +1,14 @@
 import os
 from Colors import color
-from getpass import getuser as user
+from Colors import text
 from os import system as cmd
-from os import getcwd, getenv
+from os import getenv
 from time import sleep
 from os import path
 import shutil
 import win32com.client
 
 #  Create Shortcut
-
 def create_file_shortcut(file_path, shortcut_name=None):
     # Initialize the Windows Shell
     shell = win32com.client.Dispatch("WScript.Shell")
@@ -115,25 +114,16 @@ def download(file):
         print(file.capitalize())
     sleep(10)
 
-# Define user / hostname / local path
-user = user()
-hostname = getenv("COMPUTERNAME")
-local_path = getcwd()
-# If is in User_Path
-if user in local_path:
-    local_path = "~" + local_path[local_path.find(user[-1:])+1:].replace("\\","/")
-
 # Clear prompt
 cmd("cls")
 
 # Text Samples
-
-user_text = f"{color.fg.green}({color.fg.blue}{user}@{hostname}{color.reset}{color.fg.green})-[{color.reset}{color.type.Black}{local_path}{color.fg.green}]{color.reset}"
-games_options = f"{color.fg.orange}Options:{color.reset}\n\n{color.type.Black}>{color.fg.green} 0:Minecraft{color.reset}\n{color.type.Black}>{color.fg.lightgrey} 1:Roblox{color.reset}\n{color.type.Black}>{color.fg.lightcyan} 2:Among Us{color.reset}\n{color.type.Black}>{color.fg.lightgreen} 4:Terraria{color.reset}\n{color.type.Black}>{color.fg.orange} 5:Stardew Valley{color.reset}"
-app_options = f"{color.fg.orange}Options:{color.reset}\n\n{color.type.Black}>{color.fg.green} 0:PyCharm{color.reset}"
-shell_simbol = f"{color.type.Black}{color.fg.blue}\n$ {color.reset}"
-wrong_value = f"{color.fg.red}{color.type.Black}%ERROR%{color.reset} WRONG VALUE"
-version = f"{color.type.Black}0.0.1 {color.reset}{color.fg.cyan}Beta{color.reset}"
+games_options = text.games_options
+app_options = text.app_options
+shell_simbol = text.shell_simbol
+wrong_value = text.wrong_value
+version = text.version
+user_text = text.user_text
 
 # Prompt
 cmd("cls")
